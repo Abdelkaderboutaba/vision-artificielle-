@@ -5,8 +5,7 @@ from matplotlib import pyplot as plt
 imgL = cv2.imread('scene2.png',0)
 imgR = cv2.imread('scene3.png',0)
 
-stereo = cv2.StereoSGBM_create()
-
+stereo = cv2.StereoSGBM_create(numDisparities=21,blockSize=16)
 # StereoSGBM is the implementation of Hirschmüller’s original SGM [2] algorithm. 
 # SGBM stands for Semi-Global Block Matching. It also implements the sub-pixel 
 #estimation proposed by Brichfield et al. [3]
@@ -18,7 +17,8 @@ stereo = cv2.StereoSGBM_create()
 #”International Journal of Computer Vision, vol. 35, no. 3,pp. 269–293, 1999.
 
 disparity = stereo.compute(imgL, imgR)
+print(disparity)
 
-plt.imshow(disparity)
+plt.imshow(disparity,'gray')
 #plt.imshow(disparity,'gray')
 plt.show()
