@@ -2,10 +2,10 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
-imgL = cv2.imread('scene2.png',0)
-imgR = cv2.imread('scene3.png',0)
+imgL = cv2.imread('sc3.jpg',0)
+imgR = cv2.imread('sc4.jpg',0)
 
-stereo = cv2.StereoSGBM_create(numDisparities=21,blockSize=16)
+stereo = cv2.StereoSGBM_create(numDisparities=80,blockSize=2)
 # StereoSGBM is the implementation of Hirschmüller’s original SGM [2] algorithm. 
 # SGBM stands for Semi-Global Block Matching. It also implements the sub-pixel 
 #estimation proposed by Brichfield et al. [3]
