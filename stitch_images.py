@@ -88,9 +88,12 @@ for i in range(1, len(images2)):
         print(f"Stitching failed at image {i+1}.")
         break
 
-resultf = stitch_images(result1, result2)
+resultf = stitch_images(result1, images2[0])
+r2=stitch_images(resultf, images2[1])
+r3=stitch_images(r2, images2[2])
 
-cv2.imshow("Final Stitched Image", trim(resultf))
+
+cv2.imshow("Final Stitched Image", trim(r3))
 # cv2.imshow("Final Stitched Image", trim(result2))
 
 # Trim and save the final stitched image
